@@ -1,0 +1,31 @@
+<nav class="navbar navbar-dark bg-primary">
+  <h4>Let's go!</h4>
+  <a class='newjob btn btn-dark' [routerLink]="['/new']">New vacation</a>
+</nav>
+
+<div class="panel panel-default" [ngStyle]="{'background-image': getUrl(picture)}">
+      
+<table class="tableone" class="table table-sm">
+    <thead>
+        <tr>
+            <th>Vacation</th>
+            <th>Activity</th>
+            <th>Actions available</th>
+        </tr>
+    </thead>
+   
+    <tbody *ngIf="vacations">
+        <tr *ngFor="let vacation of vacations">
+            <td>{{vacation.vacation}}</td>  
+            <td>{{vacation.activity}}</td>           
+            <td>
+              <!--This trip name is the front end router link name & has to be the same name in the app-routing.module.ts file -->
+            <button class="btn btn-primary" [routerLink]="['/trip', vacation._id]"> Read Reviews</button>
+            <button class="btn btn-primary" [routerLink]="['edit', vacation._id]">Update</button>
+            <button class="btn btn-primary" (click)="deleteVacation(vacation._id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+

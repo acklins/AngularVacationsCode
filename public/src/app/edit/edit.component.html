@@ -1,0 +1,29 @@
+<div class="box">
+    <!--This PAGE IS ALL CORRECT ALL VALIDATIONS WORK & Prepopulations-->
+    <br>
+    <br>
+    <h3>Let's go!</h3>
+    <h4>Edit a vacation:</h4>
+ <form class='oneplus' (submit)="updateVacation()">
+     <div class="form-group">
+         <label> Vacation Name:</label>
+         <p class="error" *ngIf="errors.vacation">{{errors.vacation.message}}</p>
+         <!-- ngIf-->
+         <input type="text" name='form.vacation' [(ngModel)]="form.vacation ">
+             <!-- validation of at least 3 characters-->
+     </div>
+     <div class="form-group">
+       <label>Activity name:</label>
+       <p class="error" *ngIf="errors.activity">{{errors.activity.message}}</p>
+       <!-- name tells the server what to look for, id is for JS-->
+       <input type="text" name="form.activity" [(ngModel)]="form.activity">
+         <!-- form = {name: string, rate: string}  variable in .ts-->
+          <!-- validation of at least 3 characters custom written-->
+   </div>
+         <a class="btn btn-primary" [routerLink]="['/']">Cancel</a>
+      <!-- will  take it back to the home component page & have data show 
+       -->
+      
+     <button type="submit" class='newjob btn btn-dark'>Edit</button>
+   </form>
+</div>

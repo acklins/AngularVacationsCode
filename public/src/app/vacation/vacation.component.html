@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-primary">
+  <h3>Let' go!</h3>
+    <h4 *ngIf="vacation">Reviews for: {{vacation.vacation}}</h4>
+    <a class='newjob btn btn-dark' [routerLink]="['Review']">New review</a>
+  </nav>
+  <h4 *ngIf="vacation">Vacation: {{vacation.vacation}}</h4> 
+  <!---- <h4 *ngIf="vacation" >Review: {{vacation.review}}</h4> -->
+  <!---- <h4 *ngIf="vacation">Star: {{vacation.star}}</h4> --->
+  <table class="tableone" class="table table-sm">
+      <thead>
+          <tr>
+              <th>Customer</th>
+              <th>Description</th>
+              <th>Stars</th>
+          </tr>
+      </thead>
+      <tbody *ngIf="vacation">
+          <tr *ngFor="let star of vacation.starrings">
+              <td>{{star.name}}</td>
+              <td>{{star.review}}</td>
+              <td>{{star.star}}</td>
+          </tr>
+      </tbody>
+  </table>
+  <div>
+        <a class="btn btn-primary" [routerLink]="['/']">Back</a>
+  </div>
+
+  <div class="div1">
+      <h1 class="text-center primary"> Today's weather is:</h1>
+      <h4 style="text-align:center">{{weather}}</h4>
+  </div>
